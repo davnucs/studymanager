@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}Reminders{% endblock %} {% block
+content %}
+<h2>Reminders</h2>
+{% if reminders %}
+<ul>
+  {% for card in reminders %}
+  <li>{{ card.title }} (Due: {{ card.due_date }})</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No upcoming reminders.</p>
+{% endif %} {% endblock %}
