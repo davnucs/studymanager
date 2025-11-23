@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Boards{% endblock %} {% block content
+%}
+<main class="boards-main">
+  <h2 class="boards-title">Boards</h2>
+  <div class="boards-grid">
+    {% for board in boards %}
+    <div class="board-card">
+      <div class="board-title">{{ board.name }}</div>
+      <div class="board-dots"><span></span><span></span><span></span></div>
+      <a href="{{ url_for('board', board_id=board.id) }}" class="board-link"
+        >Open</a
+      >
+      <a
+        href="{{ url_for('delete_board', board_id=board.id) }}"
+        class="board-delete"
+        >Delete</a
+      >
+    </div>
+    {% endfor %}
+    <div class="board-card add-board">
+      <div class="add-icon">+</div>
+      <div class="add-text">Add Board</div>
+    </div>
+  </div>
+</main>
+{% endblock %}
